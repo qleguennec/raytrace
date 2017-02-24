@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 14:58:21 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/23 19:47:21 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/02/24 14:22:07 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <X11/Xlib.h>
 #include <stdlib.h>
 #include "libft/libft.h"
+#include "scenes/test.h"
 
 static int
 	events

@@ -11,7 +11,7 @@ LDFLAGS += -g
 all: $(NAME)
 
 $(NAME): $(LIB) $(OBJ)
-	$(CC) $(LDFLAGS) $(OBJ) $(LOADLIBES) $(LDLIBS)
+	$(CC) $(LDFLAGS) -o $(NAME) $(OBJ) $(LOADLIBES) $(LDLIBS)
 
 %.a:
 	make -C $(shell echo $*.a | sed 's/\// /')

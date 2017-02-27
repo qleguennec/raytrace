@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   rt_ev_keyboard.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/24 14:19:08 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/27 15:34:20 by qle-guen         ###   ########.fr       */
+/*   Created: 2017/02/27 11:53:24 by qle-guen          #+#    #+#             */
+/*   Updated: 2017/02/27 13:27:58 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+# include "rt.h"
 
-# include "../obj.h"
+# define KEY(a) (key == kVK_ ## a)
 
-static t_scene		scene = {
-	.focal = 10.0,
-};
-
-static t_sphere		spheres[] = {
-	{V3(50, 50, 50), 50},
-	{V3(200, 10, 15), 200},
-};
-
-#endif
+int
+	rt_ev_keyboard
+	(int key
+	, t_rt *rt)
+{
+	if (KEY(Escape))
+		rt_exit(rt);
+	return (0);
+}

@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   v3_length.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/24 14:19:08 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/27 15:34:20 by qle-guen         ###   ########.fr       */
+/*   Created: 2017/02/27 14:23:02 by qle-guen          #+#    #+#             */
+/*   Updated: 2017/02/27 15:45:01 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#include "rt.h"
 
-# include "../obj.h"
-
-static t_scene		scene = {
-	.focal = 10.0,
-};
-
-static t_sphere		spheres[] = {
-	{V3(50, 50, 50), 50},
-	{V3(200, 10, 15), 200},
-};
-
-#endif
+float
+	v3_length
+	(t_v3 v3)
+{
+	return (sqrt(DOT(v3, v3)));
+}

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   v3_normalize.c                                     :+:      :+:    :+:   */
+/*   v3_v1_op.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/27 14:21:37 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/27 16:13:03 by qle-guen         ###   ########.fr       */
+/*   Created: 2017/02/28 14:17:40 by qle-guen          #+#    #+#             */
+/*   Updated: 2017/02/28 14:37:10 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void
-	v3_normalize
-	(t_v3 *v3)
+float
+	dot
+	(t_v3 a
+	, t_v3 b)
 {
-	float	l;
+	return (a.x * b.x + a.y * b.y + a.z * b.z);
+}
 
-	l = v3_length(*v3);
-	v3->x /= l;
-	v3->y /= l;
-	v3->z /= l;
+float
+	length
+	(t_v3 a)
+{
+	return (sqrt(dot(a, a)));
 }

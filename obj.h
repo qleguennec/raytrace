@@ -6,19 +6,14 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 13:13:56 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/27 16:16:39 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/02/28 14:08:18 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OBJ_H
 # define OBJ_H
 
-# define P2(x) (x * x)
-
 # define V3(x, y, z) ((t_v3){(x), (y), (z)})
-# define DOT(a, b) (a.x * b.x + a.y + b.y * a.z * b.z)
-# define SCL(a, x) V3(a.x * x, a.y * x, a.z * x)
-# define DIFF(a, b)	V3(a.x - b.x, a.y - b.y, a.z - b.y)
 
 # define OBJ_CIRCLE 0
 

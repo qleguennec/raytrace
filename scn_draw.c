@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 13:33:30 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/27 16:23:07 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/03/01 15:56:16 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static int
 	get_pixel_color
-	(t_v3 d)
+	(t_v3 e
+	, t_v3 d)
 {
 	bool	set;
 	float	t;
@@ -24,10 +25,12 @@ static int
 
 	nsph = sizeof(spheres) / sizeof(*spheres);
 	set = false;
-	while (nsph)
+	while (--nsph)
 	{
-		if (eq_sphere(d, spheres[nsph], &t))
+		if (eq_sphere(e, d, spheres[nsph], &t))
 		{
+			printf("ok\n");
+			return (0xff00);
 			if (!set && (set = true))
 				tmin = t;
 			else if (t < tmin)
@@ -37,9 +40,8 @@ static int
 				hit.type = OBJ_CIRCLE;
 			}
 		}
-		nsph--;
 	}
-	return (set ? 0xffffff : 0);
+	return (0Xff);
 }
 
 void
@@ -49,19 +51,21 @@ void
 	size_t	i;
 	size_t	j;
 	t_v3	d;
+	t_v3	e;
 
 	j = 0;
-	(void)rt;
-	d.z = scene.focal;
+	e = V3(0, 0, 16);
 	while (j < H)
 	{
 		i = 0;
 		while (i < W)
 		{
-			d.x = W_2 + i - 0.5;
-			d.y = j + 0.5 - H_2;
-			v3_normalize(&d);
-			rt->mlx.pix[j * WIDTH + i] = get_pixel_color(d);
+			d.x = (float)i / W - 0.5;
+			d.y = (float)j / H - 0.5;
+			d.x *= 4.0/3.0;
+			d.z = scene.focal;
+			normalize(&d);
+			rt->mlx.pix[j * WIDTH + i] = get_pixel_color(e, d);
 			i++;
 		}
 		j++;

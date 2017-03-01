@@ -6,15 +6,15 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 16:05:06 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/27 15:56:18 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/03/01 15:55:29 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_H
 # define RT_H
 
-# define WIDTH 1200
-# define HEIGHT 800
+# define WIDTH 640
+# define HEIGHT 480
 # define W WIDTH
 # define H HEIGHT
 # define W_2 (W / 2)
@@ -48,12 +48,16 @@ int					rt_ev_keyboard(int key, t_rt *rt);
 int					rt_loop(t_rt *rt);
 void				rt_exit(t_rt *rt);
 
-float				v3_dot(t_v3 a, t_v3 b);
-float				v3_length(t_v3 v3);
-void				v3_normalize(t_v3 *v3);
-
 void				scn_draw(t_rt *rt);
 
-bool				eq_sphere(t_v3 d, t_sphere sph, float *hit);
+bool				eq_sphere(t_v3 e, t_v3 d, t_sphere sph, float *hit);
+
+float				dot(t_v3 a, t_v3 b);
+float				length(t_v3 a);
+t_v3				add(t_v3 a, t_v3 b);
+t_v3				apply_mat(float *mat, t_v3 a);
+t_v3				scale(float x, t_v3 a);
+t_v3				sub(t_v3 a, t_v3 b);
+void				normalize(t_v3 *v3);
 
 #endif

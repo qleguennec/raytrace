@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 13:33:30 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/03/02 13:32:42 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/03/02 14:15:55 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ static int
 
 	closest.dist = 1e6;
 	ray_hit_sphere(e, d, &closest);
-	ray_hit_plane(e, d, &closest);
+	//ray_hit_plane(e, d, &closest);
 	if (closest.type == OBJ_SPHERE)
-		return (0xFF);
-	if (closest.type == OBJ_PLANE)
-		return (0xFFFFFF);
+		return (0xFF0);
+//	if (closest.type == OBJ_PLANE)
+//		return (0xFFFFFF);
 	return (0);
 }
 
@@ -44,7 +44,6 @@ void
 		while (i < W)
 		{
 			d.x = (float)i / W - 0.5;
-			d.x *= 4.0/3;
 			d.y = (float)j / H - 0.5;
 			d.z = scene.focal;
 			normalize(&d);

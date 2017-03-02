@@ -3,7 +3,7 @@ SRC = $(filter %.c, $(shell ls))
 OBJ = $(SRC:.c=.o)
 LIB =
 
-SCN=scn_draw.o
+SCN=scn_draw.o ray_hit_sph.o
 
 INCS += -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/ \
 	-I/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers
